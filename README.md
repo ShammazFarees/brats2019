@@ -16,8 +16,9 @@ pip install torch torchvision SimpleITK numpy opencv-python matplotlib scikit-le
 ## 2. Download BRATS 2019 Dataset
 python
 # Run in Colab/Kaggle
--!kaggle datasets download -d awsaf49/brats2019-dataset
--!unzip brats2019-dataset.zip -d data/
+!kaggle datasets download -d awsaf49/brats2019-dataset
+!unzip brats2019-dataset.zip -d data/
+
 ## 3. Run Inference
 from medsam_inference import MedSAM2Inference
 
@@ -25,12 +26,12 @@ from medsam_inference import MedSAM2Inference
 model = MedSAM2Inference(ckpt_path="medsam2_vit_b.pth")
 
 # Load sample volume
--volume_path = "data/BraTS19_2013_2_1_flair.nii.gz"
--volume = load_nii(volume_path)  # (H, W, D)
+- volume_path = "data/BraTS19_2013_2_1_flair.nii.gz"
+- volume = load_nii(volume_path)  # (H, W, D)
 
 # Run one-prompt segmentation
--prompt = [x=120, y=150]  # Example prompt coordinate
--mask_3d = model.segment_volume(volume, prompt)  # (H, W, D)
+- prompt = [x=120, y=150]  # Example prompt coordinate
+- mask_3d = model.segment_volume(volume, prompt)  # (H, W, D)
 
-##License:
--MIT License
+## License:
+- MIT License
